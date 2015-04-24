@@ -1,10 +1,19 @@
 (global-font-lock-mode 1)
-(setq make-backup-files nil)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;; http://emacsredux.com/blog/2013/05/09/keep-backup-and-auto-save-files-out-of-the-way/
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; html 4 spaces for tab
 (setq-default sgml-basic-offset 4)
+
+;; Load extensions/themes
+(add-to-list 'load-path "~/.emacs.d/extensions/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; Show whitespace
 (require 'whitespace)
@@ -12,8 +21,6 @@
 (global-whitespace-mode t)
 
 ;; js2 mode
-(add-to-list 'load-path "~/.emacs.d/extensions/")
-(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 (defun my-js2-mode-hook ()
@@ -23,7 +30,12 @@
 
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
+;; jsx
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
 ;; html/jqtpl/mustache
+(add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jqtpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
 
@@ -48,16 +60,17 @@
 ;;(global-set-key (kbd "<next>") 'warn-brian)
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("523d5a027e2f378ad80f9b368db450f4a5fa4a159ae11d5b66ccd78b3f5f807d" "a7fb4ae907b5841128a2356c42f6e03b8ac8af0f790c7d801c8ae79862cb3300" "9bb642187b302a23587b5ed0e0276772d836516c48c70fbf1dfea9fed55d0e38" "7ed6913f96c43796aa524e9ae506b0a3a50bfca061eed73b66766d14adfa86d1" "7a00b0710bb2e400d33a925f94b1cd8cfa2281f864ac9506b9046703e0045d66" "0eebf69ceadbbcdd747713f2f3f839fe0d4a45bd0d4d9f46145e40878fc9b098" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" default)))
  '(inhibit-startup-screen t))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
 
 
@@ -86,3 +99,6 @@
     "Nulla fringilla id quam sed ullamcorper. Vivamus fringilla erat id nisi molestie, auctor elementum orci sollicitudin. In nec iaculis eros. In scelerisque enim adipiscing felis ultricies pretium. Integer egestas, mauris in semper imperdiet, nibh massa ultrices libero, id molestie mi est quis massa. Nullam ut massa ut dolor condimentum pharetra. Donec interdum, lectus eget bibendum aliquet, augue dui luctus orci, quis pretium metus ligula in enim. Mauris lacus turpis, varius sed congue ut, feugiat a tellus. Nunc ac pretium enim. Proin pulvinar at velit non auctor. Fusce dignissim nec diam quis blandit. Morbi ac justo sit amet purus posuere ornare ut ac tellus. Fusce hendrerit varius tortor, nec tempor metus. Phasellus in lectus feugiat tellus venenatis mattis vel et nulla. Etiam tristique semper enim sagittis pellentesque.")
 (fset 'lorem-ipsum-5
     "Integer at velit ornare, ultrices tortor accumsan, interdum dolor. Aliquam accumsan ultrices pulvinar. Suspendisse varius faucibus faucibus. Proin pharetra est tincidunt, venenatis ante sit amet, molestie neque. Maecenas velit sapien, accumsan nec libero quis, imperdiet vestibulum neque. Nam tincidunt sapien nec congue sagittis. Donec pretium mi odio, ut commodo arcu elementum nec. In hac habitasse platea dictumst. Curabitur lacus erat, blandit et sollicitudin egestas, pretium et est. Ut nec lectus tellus. Sed malesuada auctor augue a lobortis. Morbi pharetra, quam egestas fringilla ullamcorper, ligula augue fermentum enim, quis vulputate sem magna ut tortor. Duis vehicula volutpat rhoncus. Vestibulum feugiat dolor arcu, et vehicula massa pulvinar id. Sed in est vitae elit cursus fermentum.")
+
+(fset 'html-template
+   "<html>\C-m    <head>\C-m        <title>Zillow Style Guide v2 :: Hackweek</title>\C-m        <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/zsg/zsg.css\">\C-m        <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/styleguide/styleguide.css\">\C-m        <script src=\"/thirdparty/webcomponentsjs/webcomponents.js\"></script>\C-m\C-m        <!-- Import web components -->\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-example.html\">\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-nav.html\">\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-permalink.html\">\C-m    </head>\C-m    <body unresolved>\C-m        <div class=\"zsg-layout-width zsg-layout-top zsg-layout-bottom\">\C-m            <main class=\"zsg-layout-content\">\C-m\C-m            </main>\C-m        </div>\C-m    </body>\C-m</html>\C-p\C-p\C-p\C-p\C-m\C-m\C-p\C-i")
