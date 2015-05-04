@@ -38,6 +38,7 @@
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jqtpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
 
 ;; css/less
 (autoload 'less-css-mode "less-css-mode" nil t)
