@@ -1,6 +1,8 @@
 (global-font-lock-mode 1)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+(setq inhibit-startup-message t)
+(setq column-number-mode t)
 
 ;; http://emacsredux.com/blog/2013/05/09/keep-backup-and-auto-save-files-out-of-the-way/
 (setq backup-directory-alist
@@ -13,7 +15,6 @@
 
 ;; Load extensions/themes
 (add-to-list 'load-path "~/.emacs.d/extensions/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; Show whitespace
 (require 'whitespace)
@@ -21,14 +22,14 @@
 (global-whitespace-mode t)
 
 ;; js2 mode
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
-(defun my-js2-mode-hook ()
+(defun my-js-mode-hook ()
   (setq whitespace-style '(face empty tabs lines-tail trailing))
   (global-whitespace-mode t)
   (local-set-key (kbd "RET") 'newline-and-indent))
 
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+(add-hook 'js-mode-hook 'my-js-mode-hook)
 
 ;; jsx
 (require 'web-mode)
@@ -39,6 +40,9 @@
 (add-to-list 'auto-mode-alist '("\\.jqtpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
+
+;; scss
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
 ;; css/less
 (autoload 'less-css-mode "less-css-mode" nil t)
@@ -59,21 +63,6 @@
 ;;(global-set-key (kbd "<down>") 'warn-brian)
 ;;(global-set-key (kbd "<prior>") 'warn-brian)
 ;;(global-set-key (kbd "<next>") 'warn-brian)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("523d5a027e2f378ad80f9b368db450f4a5fa4a159ae11d5b66ccd78b3f5f807d" "a7fb4ae907b5841128a2356c42f6e03b8ac8af0f790c7d801c8ae79862cb3300" "9bb642187b302a23587b5ed0e0276772d836516c48c70fbf1dfea9fed55d0e38" "7ed6913f96c43796aa524e9ae506b0a3a50bfca061eed73b66766d14adfa86d1" "7a00b0710bb2e400d33a925f94b1cd8cfa2281f864ac9506b9046703e0045d66" "0eebf69ceadbbcdd747713f2f3f839fe0d4a45bd0d4d9f46145e40878fc9b098" "31a01668c84d03862a970c471edbd377b2430868eccf5e8a9aec6831f1a0908d" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "1297a022df4228b81bc0436230f211bad168a117282c20ddcba2db8c6a200743" default)))
- '(inhibit-startup-screen t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 
 ;; cleanup whitespace macro
 (fset 'clean-whitespace
