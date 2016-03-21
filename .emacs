@@ -1,6 +1,6 @@
 (global-font-lock-mode 1)
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 (setq inhibit-startup-message t)
 (setq column-number-mode t)
 
@@ -10,8 +10,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; html 4 spaces for tab
-(setq-default sgml-basic-offset 4)
+;; html 2 spaces for tab
+(setq-default sgml-basic-offset 2)
 
 ;; Load extensions/themes
 (add-to-list 'load-path "~/.emacs.d/extensions/")
@@ -38,6 +38,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
 (setq web-mode-content-types-alist
       '(("jsx"  . "\\.js$")))
+
+(custom-set-variables
+ '(web-mode-code-indent-offset 2))
 
 ;; html/jqtpl/mustache
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
