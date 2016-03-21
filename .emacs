@@ -22,18 +22,22 @@
 (global-whitespace-mode t)
 
 ;; js2 mode
-(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
-(defun my-js-mode-hook ()
-  (setq whitespace-style '(face empty tabs lines-tail trailing))
-  (global-whitespace-mode t)
-  (local-set-key (kbd "RET") 'newline-and-indent))
+;;(defun my-js-mode-hook ()
+;;  (setq whitespace-style '(face empty tabs lines-tail trailing))
+;;  (global-whitespace-mode t)
+;;  (local-set-key (kbd "RET") 'newline-and-indent))
 
-(add-hook 'js-mode-hook 'my-js-mode-hook)
+;;(add-hook 'js-mode-hook 'my-js-mode-hook)
 
 ;; jsx
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+(add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
+(setq web-mode-content-types-alist
+      '(("jsx"  . "\\.js$")))
 
 ;; html/jqtpl/mustache
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
