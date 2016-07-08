@@ -1,6 +1,9 @@
+;; global tab width
+(setq my-tab-width 4)
+
 (global-font-lock-mode 1)
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
+(setq-default tab-width my-tab-width)
 (setq inhibit-startup-message t)
 (setq column-number-mode t)
 
@@ -10,8 +13,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; html 2 spaces for tab
-(setq-default sgml-basic-offset 2)
+;; html spaces for tab
+(setq-default sgml-basic-offset my-tab-width)
 
 ;; Load extensions/themes
 (add-to-list 'load-path "~/.emacs.d/extensions/")
@@ -21,17 +24,7 @@
 (setq whitespace-style '(face empty tabs trailing))
 (global-whitespace-mode t)
 
-;; js2 mode
-;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
-
-;;(defun my-js-mode-hook ()
-;;  (setq whitespace-style '(face empty tabs lines-tail trailing))
-;;  (global-whitespace-mode t)
-;;  (local-set-key (kbd "RET") 'newline-and-indent))
-
-;;(add-hook 'js-mode-hook 'my-js-mode-hook)
-
-;; jsx
+;; js, json, jsx
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
@@ -40,9 +33,9 @@
       '(("jsx"  . "\\.js$")))
 
 (custom-set-variables
- '(web-mode-markup-indent-offset 2)
- '(web-mode-css-indent-offset 2)
- '(web-mode-code-indent-offset 2))
+ '(web-mode-markup-indent-offset my-tab-width)
+ '(web-mode-css-indent-offset my-tab-width)
+ '(web-mode-code-indent-offset my-tab-width))
 
 ;; html/jqtpl/mustache
 (add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
@@ -51,7 +44,7 @@
 (add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
 
 ;; scss
-(setq css-indent-offset 2)
+(setq css-indent-offset my-tab-width)
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
 ;; css/less
@@ -62,28 +55,12 @@
 (add-hook 'css-mode-hook 'my-css-mode-hook)
 (add-hook 'less-css-mode-hook 'my-css-mode-hook)
 
-;; Stop using arrow keys!
-;;(defun warn-brian ()
-;;  (interactive)
-;;  (message "brian, instead use C-f, C-b, C-n, C-p, C-v, M-v, M->, M-<"))
-
-;;(global-set-key (kbd "<left>") 'warn-brian)
-;;(global-set-key (kbd "<right>") 'warn-brian)
-;;(global-set-key (kbd "<up>") 'warn-brian)
-;;(global-set-key (kbd "<down>") 'warn-brian)
-;;(global-set-key (kbd "<prior>") 'warn-brian)
-;;(global-set-key (kbd "<next>") 'warn-brian)
-
 ;; cleanup whitespace macro
 (fset 'clean-whitespace
    "\C-xh\C-[xunta\C-i\C-m\C-[xdelet\C-itra\C-i\C-m\C-@")
 
 (fset 'clean-quotes
    "\C-xh\C-[xrepl\C-ist\C-i\C-m‘\C-m'\C-m\C-xh\C-[xrepl\C-ist\C-i\C-m’\C-m'\C-m")
-
-;; YUI template
-(fset 'yui-template
-   "?\C-?/*global YUI*/\C-mYUI.add('', function (Y) {\C-m\C-m}\C-i, 3.7.\C-?\C-?\C-?\C-?'3.7.3', {\C-m\C-m}\C-i);\C-p\C-irequires: []\C-n\C-m")
 
 ;; HTML template
 (fset 'html-template
@@ -102,3 +79,25 @@
 
 (fset 'html-template
    "<html>\C-m    <head>\C-m        <title>Zillow Style Guide v2 :: Hackweek</title>\C-m        <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/zsg/zsg.css\">\C-m        <link rel=\"stylesheet\" type=\"text/css\" href=\"/css/styleguide/styleguide.css\">\C-m        <script src=\"/thirdparty/webcomponentsjs/webcomponents.js\"></script>\C-m\C-m        <!-- Import web components -->\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-example.html\">\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-nav.html\">\C-m        <link rel=\"import\" href=\"/styleguide/webcomponents/styleguide-permalink.html\">\C-m    </head>\C-m    <body unresolved>\C-m        <div class=\"zsg-layout-width zsg-layout-top zsg-layout-bottom\">\C-m            <main class=\"zsg-layout-content\">\C-m\C-m            </main>\C-m        </div>\C-m    </body>\C-m</html>\C-p\C-p\C-p\C-p\C-m\C-m\C-p\C-i")
+
+;; js2 mode
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
+
+;;(defun my-js-mode-hook ()
+;;  (setq whitespace-style '(face empty tabs lines-tail trailing))
+;;  (global-whitespace-mode t)
+;;  (local-set-key (kbd "RET") 'newline-and-indent))
+
+;;(add-hook 'js-mode-hook 'my-js-mode-hook)
+
+;; Stop using arrow keys!
+;;(defun warn-brian ()
+;;  (interactive)
+;;  (message "brian, instead use C-f, C-b, C-n, C-p, C-v, M-v, M->, M-<"))
+
+;;(global-set-key (kbd "<left>") 'warn-brian)
+;;(global-set-key (kbd "<right>") 'warn-brian)
+;;(global-set-key (kbd "<up>") 'warn-brian)
+;;(global-set-key (kbd "<down>") 'warn-brian)
+;;(global-set-key (kbd "<prior>") 'warn-brian)
+;;(global-set-key (kbd "<next>") 'warn-brian)
