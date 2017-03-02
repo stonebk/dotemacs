@@ -26,6 +26,8 @@
 
 ;; js, json, jsx
 (require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jinja2$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . web-mode))
@@ -38,7 +40,6 @@
  '(web-mode-code-indent-offset my-tab-width))
 
 ;; html/jqtpl/mustache
-(add-to-list 'auto-mode-alist '("\\.html$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jqtpl$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.hbs$" . html-mode))
