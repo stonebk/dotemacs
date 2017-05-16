@@ -61,7 +61,7 @@
    "\C-xh\C-[xunta\C-i\C-m\C-[xdelet\C-itra\C-i\C-m\C-@")
 
 (fset 'clean-quotes
-   "\C-xh\C-[xrepl\C-ist\C-i\C-m‘\C-m'\C-m\C-xh\C-[xrepl\C-ist\C-i\C-m’\C-m'\C-m")
+   "\C-[<\C-[xreplace-string\C-m”\C-m\"\C-m\C-[<\C-[xreplace-string\C-m“\C-m\"\C-m\C-[<\C-[xreplace-string\C-m‘\C-m\'\C-m\C-[<\C-[xreplace-string\C-m’\C-m\'\C-m")
 
 ;; HTML template
 (fset 'html-template
