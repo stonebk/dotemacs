@@ -7,6 +7,9 @@
 (setq inhibit-startup-message t)
 (setq column-number-mode t)
 
+;; https://emacs.stackexchange.com/questions/598/how-do-i-prevent-extremely-long-lines-making-emacs-slow
+(setq-default bidi-display-reordering nil)
+
 ;; http://emacsredux.com/blog/2013/05/09/keep-backup-and-auto-save-files-out-of-the-way/
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
