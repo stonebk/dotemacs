@@ -19,4 +19,6 @@ if [ -a ~/.emacs -o -a ~/.emacs.d ]; then
             echo "Aborted."
             exit;;
     esac
+else
+    go
 fi
