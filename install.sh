@@ -5,7 +5,6 @@ go()
     PWD=`pwd`
     rm -rf ~/.emacs
     rm -rf ~/.emacs.d
-    ln -s $PWD/.emacs ~
     ln -s $PWD/.emacs.d ~
     echo "Installed."
 }
