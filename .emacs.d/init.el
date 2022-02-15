@@ -140,7 +140,7 @@
 
 ;; Typescript language server
 (use-package typescript-mode
-  :mode "\\.ts\\'"
+  :mode "\\.tsx?\\'"
   :hook (typescript-mode . lsp-deferred))
 
 ;; Better completion at point
