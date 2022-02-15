@@ -123,3 +123,6 @@
 (use-package counsel-projectile
   :after projectile
   :config (counsel-projectile-mode))
+
+;; git management
+(use-package magit)
