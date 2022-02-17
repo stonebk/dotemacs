@@ -139,7 +139,9 @@
   "C-r" 'swiper)
 (general-define-key
   :keymaps 'ivy-minibuffer-map
-  "C-r" 'ivy-previous-line)
+  "C-r" 'ivy-previous-line
+  "C-f" 'ivy-done
+  "C-b" 'ivy-done)
 
 ;; Project managment project
 (use-package projectile
