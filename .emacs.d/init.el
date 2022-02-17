@@ -182,3 +182,12 @@
 (use-package web-mode
   :mode ("\\.html?$" "\\.jsx?$" "\\.tsx?$" "\\.json$")
   :hook (web-mode . lsp-deferred))
+
+;; Always use jsx content type with .js (this preserves jsx markup indentation)
+(setq web-mode-content-types-alist
+      '(("jsx"  . "\\.js$")))
+
+(custom-set-variables
+ '(web-mode-markup-indent-offset my-tab-width)
+ '(web-mode-css-indent-offset my-tab-width)
+ '(web-mode-code-indent-offset my-tab-width))
