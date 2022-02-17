@@ -182,6 +182,11 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
+;; This resolves an error during company completion
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
 ;; web-mode
 (use-package web-mode
   :mode ("\\.html?$" "\\.jsx?$" "\\.tsx?$" "\\.json$")
