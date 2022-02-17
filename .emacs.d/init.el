@@ -85,7 +85,9 @@
 
 ;; Icons for doom-modeline
 ;; Note: Must run M-x all-the-icons-install-fonts manually once
-(use-package all-the-icons)
+;; Note: Does not work with emacs -nw
+(use-package all-the-icons
+  :if (display-graphic-p))
 
 ;; Prettier mode line (bottom status bar)
 (use-package doom-modeline
