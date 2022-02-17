@@ -153,6 +153,7 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+  (setq lsp-headerline-breadcrumb-enable nil)
   :config
   (lsp-enable-which-key-integration t))
 
