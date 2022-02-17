@@ -31,6 +31,10 @@
 ;; Disable the bell
 (setq visible-bell 1)
 
+;; This will make sure the env is correct when using the GUI version of emacs
+(use-package exec-path-from-shell
+  :config (when (memq window-system '(mac ns x)) (exec-path-from-shell-initialize)))
+
 ;; https://emacs.stackexchange.com/questions/598/how-do-i-prevent-extremely-long-lines-making-emacs-slow
 (setq-default bidi-display-reordering nil)
 
