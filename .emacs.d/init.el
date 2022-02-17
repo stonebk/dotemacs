@@ -196,3 +196,7 @@
  '(web-mode-markup-indent-offset my-tab-width)
  '(web-mode-css-indent-offset my-tab-width)
  '(web-mode-code-indent-offset my-tab-width))
+
+;; cleanup whitespace macro
+(fset 'clean-whitespace
+      "\C-xh\C-[xunta\C-i\C-m\C-[xdelet\C-itra\C-i\C-m\C-@")
