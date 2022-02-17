@@ -160,8 +160,7 @@
   :config
   (lsp-enable-which-key-integration t))
 
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode))
+(use-package lsp-ui)
 
 ;; Typescript language server
 (use-package typescript-mode
