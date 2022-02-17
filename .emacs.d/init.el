@@ -5,9 +5,14 @@
 (menu-bar-mode -1)   ; Disable the menu bar
 
 ;; These don't seem to be necessary when using -nw
-;;(scroll-bar-mode -1) ; Disable visible scrollbar
-;;(tool-bar-mode -1)   ; Disable the toolbar
-;;(set-fringe-mode 10) ; Give some breathing room
+(if (display-graphic-p)
+    (progn
+      ;; Disable visible scrollbar
+      (scroll-bar-mode -1)
+      ;; Disable the toolbar
+      (tool-bar-mode -1)
+      ;; Give some breathing room
+      (set-fringe-mode 10)))
 
 (global-font-lock-mode 1)
 
