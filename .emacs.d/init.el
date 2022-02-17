@@ -9,6 +9,14 @@
 ;;(tool-bar-mode -1)   ; Disable the toolbar
 ;;(set-fringe-mode 10) ; Give some breathing room
 
+(global-font-lock-mode 1)
+
+;; Handle tabs
+(setq my-tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width my-tab-width)
+(setq-default sgml-basic-offset my-tab-width)
+
 ;; Show column numbers in the mode line
 (column-number-mode)
 
@@ -17,6 +25,9 @@
 
 ;; Disable the bell
 (setq visible-bell 1)
+
+;; https://emacs.stackexchange.com/questions/598/how-do-i-prevent-extremely-long-lines-making-emacs-slow
+(setq-default bidi-display-reordering nil)
 
 ;; Move backup directory
 ;; https://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
