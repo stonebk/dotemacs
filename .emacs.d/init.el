@@ -7,6 +7,8 @@
 ;; These don't seem to be necessary when using -nw
 (if (display-graphic-p)
     (progn
+      ;; Go fullscreen
+      (toggle-frame-fullscreen)
       ;; Disable visible scrollbar
       (scroll-bar-mode -1)
       ;; Disable the toolbar
