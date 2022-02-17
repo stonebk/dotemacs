@@ -166,3 +166,8 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
+
+;; web-mode
+(use-package web-mode
+  :mode ("\\.html?$" "\\.jsx?$" "\\.tsx?$" "\\.json$")
+  :hook (web-mode . lsp-deferred))
