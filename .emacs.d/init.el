@@ -27,6 +27,11 @@
       kept-old-versions 2
       version-control t)
 
+;; Move custom file
+;; https://stackoverflow.com/questions/5052088/what-is-custom-set-variables-and-faces-in-my-emacs
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file t)
+
 ;; Initialize package sources
 (require 'package)
 
