@@ -91,6 +91,7 @@
   ;;(load-theme 'doom-Iosvkem t))
 
 ;; Update gruvbox's mode-line colors so that vertically stacked windows have a delimeter that matches the horizontal delimeter
+(set-face-background 'mode-line "#4e4e4e")
 (set-face-background 'mode-line-inactive "#4e4e4e")
 (set-face-foreground 'mode-line-inactive "#ffffff")
 
