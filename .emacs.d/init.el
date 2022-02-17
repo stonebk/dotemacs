@@ -16,6 +16,7 @@
       ;; Give some breathing room
       (set-fringe-mode 10)))
 
+;; Enable syntax highlighting for all buffers
 (global-font-lock-mode 1)
 
 ;; Handle tabs
