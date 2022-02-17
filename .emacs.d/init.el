@@ -106,9 +106,12 @@
   :init (doom-modeline-mode 1))
 
 ;; Show whitespace
-(require 'whitespace)
-(setq whitespace-style '(face empty tabs trailing))
-(global-whitespace-mode t)
+(use-package whitespace
+  :custom
+  (whitespace-style '(face empty tabs trailing))
+  (whitespace-global-modes '(not magit-status-mode magit-diff-mode))
+  :config
+  (global-whitespace-mode))
 
 ;; More useful help info when asked for a choice
 (use-package which-key
