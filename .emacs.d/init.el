@@ -1,11 +1,13 @@
 (setq inhibit-startup-message t)
 
 ;; Some basic config to clean up the UI of unnecessary clutter
-(scroll-bar-mode -1) ; Disable visible scrollbar
-(tool-bar-mode -1)   ; Disable the toolbar
 (tooltip-mode -1)    ; Disable tooltips
-(set-fringe-mode 10) ; Give some breathing room
 (menu-bar-mode -1)   ; Disable the menu bar
+
+;; These don't seem to be necessary when using -nw
+;;(scroll-bar-mode -1) ; Disable visible scrollbar
+;;(tool-bar-mode -1)   ; Disable the toolbar
+;;(set-fringe-mode 10) ; Give some breathing room
 
 ;; Show column numbers in the mode line
 (column-number-mode)
