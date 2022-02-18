@@ -1,14 +1,17 @@
 (setq inhibit-startup-message t)
 
 ;; Some basic config to clean up the UI of unnecessary clutter
-(tooltip-mode -1)    ; Disable tooltips
-(menu-bar-mode -1)   ; Disable the menu bar
+(tooltip-mode -1) ; Disable tooltips
 
-;; These don't seem to be necessary when using -nw
+;; Config for terminal mode
+(if (not (display-graphic-p))
+    (progn
+      ;; Disable the menu bar
+      (menu-bar-mode -1)))
+
+;; Config for GUI mode
 (if (display-graphic-p)
     (progn
-      ;; Go fullscreen
-      (toggle-frame-fullscreen)
       ;; Disable visible scrollbar
       (scroll-bar-mode -1)
       ;; Disable the toolbar
