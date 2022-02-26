@@ -26,7 +26,6 @@
 (setq my-tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width my-tab-width)
-(setq-default sgml-basic-offset my-tab-width)
 
 ;; Show column numbers in the mode line
 (column-number-mode)
