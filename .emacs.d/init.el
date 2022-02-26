@@ -167,13 +167,14 @@
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
+  :custom
+  (projectile-completion-system 'ivy)
+  (projectile-enable-caching t)
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
   (when (file-directory-p "~/git")
-    (setq projectile-project-search-path '("~/git")))
-    (setq projectile-switch-project-action #'projectile-dired))
+    (setq projectile-project-search-path '("~/git"))))
 
 (use-package counsel-projectile
   :after projectile
