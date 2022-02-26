@@ -84,13 +84,25 @@
   :config
   (ivy-mode 1)
   (setq ivy-wrap t))
+
 (use-package ivy-rich
   :after ivy
   :init
   (ivy-rich-mode 1))
+
 (use-package counsel
   :config
   (counsel-mode 1))
+
+;; Better sorting for completion
+(use-package ivy-prescient
+  :after counsel
+  :config
+  (ivy-prescient-mode 1)
+  (prescient-persist-mode 1))
+
+;; Do not sort by shortest length
+(setq prescient-sort-length-enable nil)
 
 ;; Keep the current selection when quitting search with C-g
 (setq swiper-stay-on-quit t)
@@ -200,6 +212,12 @@
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
+
+(use-package company-prescient
+  :after company
+  :config
+  (company-prescient-mode 1)
+  (prescient-persist-mode 1))
 
 ;; This resolves an error during company completion
 (use-package yasnippet
