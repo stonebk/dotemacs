@@ -36,6 +36,9 @@
 ;; Disable the bell
 (setq visible-bell 1)
 
+;; Automatically move focus to help window when it opens
+(setq help-window-select t)
+
 ;; https://emacs.stackexchange.com/questions/598/how-do-i-prevent-extremely-long-lines-making-emacs-slow
 (setq-default bidi-display-reordering nil)
 
